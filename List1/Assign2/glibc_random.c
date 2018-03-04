@@ -1,7 +1,16 @@
 #include <stdlib.h>
 #include "glibc_random.h"
 
-unsigned long call_glibc_random()
+void initialize()
 {
-    return rand();
+    static unsigned int seed = 1;
+    static char state[8];
+
+    initstate(seed, state, sizeof(state));
+}
+
+long int call_glibc_random()
+{
+    long r = rand();
+    return r;
 }

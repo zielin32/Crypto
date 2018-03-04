@@ -3018,24 +3018,28 @@ static swig_module_info swig_module = {swig_types, 1, 0, 0, 0, 0};
 
   #define SWIG_From_long   PyLong_FromLong 
 
-
-SWIGINTERNINLINE PyObject* 
-SWIG_From_unsigned_SS_long  (unsigned long value)
-{
-  return (value > LONG_MAX) ?
-    PyLong_FromUnsignedLong(value) : PyLong_FromLong((long)(value)); 
-}
-
 #ifdef __cplusplus
 extern "C" {
 #endif
+SWIGINTERN PyObject *_wrap_initialize(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  
+  if (!PyArg_ParseTuple(args,(char *)":initialize")) SWIG_fail;
+  initialize();
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
 SWIGINTERN PyObject *_wrap_call_glibc_random(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
-  unsigned long result;
+  long result;
   
   if (!PyArg_ParseTuple(args,(char *)":call_glibc_random")) SWIG_fail;
-  result = (unsigned long)call_glibc_random();
-  resultobj = SWIG_From_unsigned_SS_long((unsigned long)(result));
+  result = (long)call_glibc_random();
+  resultobj = SWIG_From_long((long)(result));
   return resultobj;
 fail:
   return NULL;
@@ -3044,6 +3048,7 @@ fail:
 
 static PyMethodDef SwigMethods[] = {
 	 { (char *)"SWIG_PyInstanceMethod_New", (PyCFunction)SWIG_PyInstanceMethod_New, METH_O, NULL},
+	 { (char *)"initialize", _wrap_initialize, METH_VARARGS, NULL},
 	 { (char *)"call_glibc_random", _wrap_call_glibc_random, METH_VARARGS, NULL},
 	 { NULL, NULL, 0, NULL }
 };

@@ -1,1 +1,2 @@
-unsigned long call_glibc_random();
+void initialize();
+long int call_glibc_random();

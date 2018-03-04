@@ -54,7 +54,6 @@ def crack_unknown_modulus(states):
     diffs = [s1 - s0 for s0, s1 in zip(states, states[1:])]
     zeroes = [t2*t0 - t1*t1 for t0, t1, t2 in zip(diffs, diffs[1:], diffs[2:])]
     modulus = abs(reduce(gcd, zeroes))
-    print(modulus - 9223372036854775783)
     return crack_unknown_multiplier(states, modulus)
 
 def predict_next_value(current_state, modulus, multiplier, increment):

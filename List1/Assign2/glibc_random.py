@@ -91,6 +91,10 @@ except AttributeError:
 
 
 
+def initialize():
+    return _glibc_random.initialize()
+initialize = _glibc_random.initialize
+
 def call_glibc_random():
     return _glibc_random.call_glibc_random()
 call_glibc_random = _glibc_random.call_glibc_random
